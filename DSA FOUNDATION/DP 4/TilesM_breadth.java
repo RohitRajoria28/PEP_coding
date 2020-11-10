@@ -17,7 +17,9 @@ public class Main {
         for (int i = 1; i <= n; i++) {
             if (i < m) {
                 dp[i] = 1;
-            } else if (i == m) {
+            }
+            // for i==m we have 2 ways as we can put all tiles horizontally or vertically 
+            else if (i == m) {
                 dp[i] = 2;
             } else if (i > m) {
                 dp[i] = dp[i - m] + dp[i - 1];
