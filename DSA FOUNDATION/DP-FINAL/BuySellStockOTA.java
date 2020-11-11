@@ -1,4 +1,4 @@
-import java.io.*;
+  import java.io.*;
 import java.util.*;
 
 public class Main {
@@ -14,14 +14,18 @@ public class Main {
         // write your code here
     }
     public static int BuySellStocksOta(int[] prices) {
+        // make dp of length value
         int dp[] = new int[prices.length];
         for (int day = 0; day < prices.length; day++) {
             int Min = Integer.MAX_VALUE;
+            // finding the minimum stock of previous days 
             for (int stk = day; stk >= 0; stk--) {
                 Min = Math.min(Min, prices[stk]);
             }
+            // Maximum profit of that perticular day
             dp[day]=prices[day]-Min;
         }
+        // Maximum profit of the days 
         int max=Integer.MIN_VALUE;
         for(int i=0;i<prices.length;i++){
             max=Math.max(max,dp[i]);
